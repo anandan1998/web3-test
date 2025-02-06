@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Dashboard from './dash';
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -32,6 +33,7 @@ function App() {
         ) : (
           <div>
             <p>Connected Wallet: {walletAddress}</p>
+             <Dashboard />
           </div>
         )}
       </header>

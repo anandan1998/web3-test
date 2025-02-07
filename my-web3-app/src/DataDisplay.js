@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function DataDisplay() {
-  const [data, setData] = useState([]);
+  const [usage, setUsage] = useState([]);
+  const [packet, setPacket] = useState([]);
+  const [throughput, setThroughput] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     // 确保这里的 URL 是后端的 API 地址
-    axios.get('http://localhost:5000/api/data/')  // 请替换为实际的后端 API 地址
+    axios.get('http://localhost:5001/api/bigquery/query')  // 请替换为实际的后端 API 地址
       .then(response => {
-        setData(response.data);
+        setUsage(response.rows);
         setLoading(false);
       })
       .catch(error => {

@@ -13,6 +13,11 @@ app.use(express.json());
 const bigqueryRoutes = require('./routes/bigquery');
 app.use('/api/bigquery', bigqueryRoutes);
 
+// New metamask route
+const metamaskAuthRoutes = require('./routes/metamaskAuth');
+app.use('/api/metamask', metamaskAuthRoutes);
+
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
